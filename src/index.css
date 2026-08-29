@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+/* =====================================================
+   DARK LUXURY DESIGN TOKENS
+   Adjust here to retheme the entire site.
+   ===================================================== */
+@layer base {
+  :root {
+    /* Fonts */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans:  'Jost', system-ui, -apple-system, sans-serif;
+
+    /* Core palette */
+    --color-bg:             #0C0B0A;
+    --color-surface:        #161412;
+    --color-surface-raised: #1E1B18;
+    --color-border:         rgba(201, 169, 110, 0.12);
+    --color-border-strong:  rgba(201, 169, 110, 0.25);
+
+    /* Typography */
+    --color-text:    #F5F0E8;
+    --color-muted:   #9C9180;
+    --color-subtle:  #4A4540;
+
+    /* Accent — champagne / bronze */
+    --color-accent:      #C9A96E;
+    --color-accent-glow: #E8C98A;
+    --color-accent-dim:  rgba(201, 169, 110, 0.12);
+
+    /* Scrollbar thumb */
+    --color-scrollbar: #2A2520;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-heading {
+    font-family: var(--font-serif);
+    color: var(--color-text);
+  }
+}
+
+/* =====================================================
+   CHAMPAGNE ACCENT GRADIENTS
+   (replaces old greyscale "gold" gradient)
+   ===================================================== */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #C9A96E 0%, #E8C98A 50%, #C9A96E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-bg-gradient {
+  background: linear-gradient(135deg, #C9A96E 0%, #E8C98A 100%);
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(135deg, #C9A96E, rgba(201, 169, 110, 0.3)) 1;
+}
+
+/* =====================================================
+   GLASS / CARD PANELS — dark surface
+   ===================================================== */
+.glass-panel {
+  background: var(--color-surface);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--color-border);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: var(--color-surface-raised);
+  border-color: var(--color-border-strong);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+/* =====================================================
+   SHIMMER ANIMATION
+   ===================================================== */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg,
+    rgba(201,169,110,0) 0%,
+    rgba(201,169,110,0.08) 50%,
+    rgba(201,169,110,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 4s infinite;
+}
+
+/* =====================================================
+   CUSTOM SCROLLBAR
+   ===================================================== */
+::-webkit-scrollbar        { width: 8px; }
+::-webkit-scrollbar-track  { background: var(--color-bg); }
+::-webkit-scrollbar-thumb  { background: var(--color-scrollbar); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* =====================================================
+   LIGHTBOX BACKDROP
+   ===================================================== */
+.lightbox-backdrop {
+  background-color: rgba(12, 11, 10, 0.96);
+  backdrop-filter: blur(12px);
+}
+
+/* =====================================================
+   ANIMATION KEYFRAMES
+   ===================================================== */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1.03); }
+}
+
+@keyframes lightboxOpen {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* =====================================================
+   HERO ENTRANCE — staggered children
+   ===================================================== */
+.hero-animate {
+  opacity: 0;
+  animation: fadeSlideUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-delay-0 { animation-delay: 0.10s; }
+.hero-delay-1 { animation-delay: 0.25s; }
+.hero-delay-2 { animation-delay: 0.40s; }
+.hero-delay-3 { animation-delay: 0.55s; }
+.hero-delay-4 { animation-delay: 0.70s; }
+.hero-delay-5 { animation-delay: 0.85s; }
+
+.hero-bg-zoom {
+  animation: heroZoom 14s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* =====================================================
+   SCROLL REVEAL
+   ===================================================== */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity   0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.16s; }
+.stagger-3 { transition-delay: 0.24s; }
+.stagger-4 { transition-delay: 0.32s; }
+.stagger-5 { transition-delay: 0.40s; }
+.stagger-6 { transition-delay: 0.48s; }
+.stagger-7 { transition-delay: 0.56s; }
+
+/* =====================================================
+   FILMIC COLOR GRADING — Dark Luxury edition
+   Warmer + slightly brighter to pop on dark bg.
+   Adjust filter values here to retune globally.
+   ===================================================== */
+.img-graded {
+  filter: contrast(1.04) saturate(0.88) sepia(0.05) brightness(0.95);
+}
+
+/* Warm amber film overlay via ::after — 4% opacity */
+.img-film-wrap {
+  position: relative;
+}
+.img-film-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(201, 139, 60, 0.04);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* =====================================================
+   GALLERY IMAGE HOVER — zoom + caption overlay
+   ===================================================== */
+.gallery-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-img-wrap img {
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.gallery-img-wrap:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-caption-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(12, 11, 10, 0.85) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+}
+
+.gallery-img-wrap:hover .gallery-caption-overlay {
+  opacity: 1;
+}
+
+/* =====================================================
+   LIGHTBOX
+   ===================================================== */
+.lightbox-enter {
+  animation: lightboxOpen 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* =====================================================
+   MOBILE MENU SLIDE-IN
+   ===================================================== */
+.mobile-menu-panel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    max-height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity    0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    transform  0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: max-height, opacity, transform;
+}
+
+.mobile-menu-panel.open {
+  max-height: 600px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================================
+   PREFERS-REDUCED-MOTION OVERRIDE
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate,
+  .hero-bg-zoom          { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .reveal-hidden         { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .gallery-img-wrap img  { transition: none !important; }
+  .gallery-caption-overlay { transition: none !important; }
+  .mobile-menu-panel     { transition: none !important; max-height: 600px; opacity: 1; transform: none; }
+}
