@@ -5,6 +5,10 @@
    Adjust here to retheme the entire site.
    ===================================================== */
 @layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   :root {
     /* Fonts */
     --font-serif: 'Playfair Display', Georgia, serif;
@@ -40,11 +44,123 @@
     background-color: var(--color-bg);
     color: var(--color-text);
     overflow-x: hidden;
+    min-width: 320px;
   }
 
   h1, h2, h3, .font-serif-heading {
     font-family: var(--font-serif);
     color: var(--color-text);
+  }
+}
+
+@media (max-width: 640px) {
+  section[id]:not(#hero) {
+    scroll-margin-top: 76px;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 104px 0 42px;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .hero-location-badge {
+    max-width: 100%;
+    margin-bottom: 22px;
+    padding: 8px 12px;
+    gap: 7px;
+    line-height: 1.35;
+  }
+
+  .hero-location-badge span {
+    letter-spacing: 0.12em;
+    font-size: 10px;
+  }
+
+  .hero-title {
+    max-width: 100%;
+    font-size: 2.5rem;
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-tagline {
+    max-width: 19rem;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-content .mb-10 {
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-content .mb-16 {
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions a {
+    min-height: 52px;
+    padding-inline: 20px;
+  }
+
+  .hero-highlights {
+    gap: 18px 10px;
+    padding-top: 22px;
+  }
+
+  .hero-highlights > div {
+    min-width: 0;
+  }
+
+  .hero-highlights span:last-child {
+    max-width: 9rem;
+    line-height: 1.35;
+  }
+
+  .rates-layout {
+    gap: 18px;
+  }
+
+  .rates-header h3 {
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+
+  .rates-grid {
+    gap: 8px;
+  }
+
+  .rates-grid a {
+    min-height: 88px;
+    padding: 10px 6px;
+  }
+
+  .rates-grid a span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  section[id]:not(#hero) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  section[id]:not(#hero) h2 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  section[id]:not(#hero) .max-w-7xl {
+    padding-inline: 16px;
+  }
+
+  button, a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

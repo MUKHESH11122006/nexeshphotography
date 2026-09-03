@@ -26,10 +26,10 @@ export const StartingRates: React.FC = () => {
       className="bg-[#161412] py-8 border-y border-[#C9A96E]/10 relative z-20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="rates-layout flex flex-col md:flex-row items-center justify-between gap-6">
           
           {/* Quick Header */}
-          <div className={`md:w-1/4 text-center md:text-left reveal-hidden ${isSectionVisible ? 'reveal-visible' : ''}`}>
+          <div className={`rates-header md:w-1/4 text-center md:text-left reveal-hidden ${isSectionVisible ? 'reveal-visible' : ''}`}>
             <span className="text-[10px] tracking-widest text-[#C9A96E] font-semibold uppercase font-sans block">
               Transparent Pricing
             </span>
@@ -39,7 +39,7 @@ export const StartingRates: React.FC = () => {
           </div>
 
           {/* Grid / Ticker Cards */}
-          <div className="md:w-3/4 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 w-full">
+          <div className="rates-grid md:w-3/4 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 w-full">
             {STARTING_RATES.map((item, idx) => (
               <a
                 key={idx}

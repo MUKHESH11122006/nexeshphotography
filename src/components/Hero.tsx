@@ -196,7 +196,7 @@ export const Hero: React.FC<HeroProps> = ({ onEnquireClick, onCategorySelect }) 
       onMouseLeave={() => {
         mousePos.current.active = false;
       }}
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden cursor-default"
+      className="hero-section relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden cursor-default"
     >
       {/* Background Image Layer */}
       <div ref={bgRef} className="absolute inset-0 z-0" style={{ willChange: 'transform' }}>
@@ -220,10 +220,10 @@ export const Hero: React.FC<HeroProps> = ({ onEnquireClick, onCategorySelect }) 
       {/* Ambient champagne glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C9A96E]/5 rounded-full blur-[160px] pointer-events-none z-0"></div>
 
-      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+      <div className="hero-content relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         
         {/* Location & Studio Badge */}
-        <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#1E1B18]/70 border border-[#C9A96E]/20 backdrop-blur-md mb-6 shadow-md shadow-black/40 hero-animate hero-delay-0">
+        <div className="hero-location-badge inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#1E1B18]/70 border border-[#C9A96E]/20 backdrop-blur-md mb-6 shadow-md shadow-black/40 hero-animate hero-delay-0">
           <MapPin className="w-3.5 h-3.5 text-[#C9A96E]" />
           <span className="text-xs font-sans font-medium tracking-widest text-[#F5F0E8] uppercase">
             {STUDIO_INFO.location}
@@ -235,12 +235,12 @@ export const Hero: React.FC<HeroProps> = ({ onEnquireClick, onCategorySelect }) 
         </div>
 
         {/* Studio Title */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#F5F0E8] tracking-tight leading-[1.1] mb-4 hero-animate hero-delay-1">
+        <h1 className="hero-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-[#F5F0E8] tracking-tight leading-[1.1] mb-4 hero-animate hero-delay-1">
           NEXESH <span className="gold-text-gradient italic font-normal">Photography</span>
         </h1>
 
         {/* Studio Tagline */}
-        <p className="text-xl sm:text-2xl md:text-3xl font-serif italic text-[#9C9180] font-light mb-6 tracking-wide hero-animate hero-delay-2">
+        <p className="hero-tagline text-xl sm:text-2xl md:text-3xl font-serif italic text-[#9C9180] font-light mb-6 tracking-wide hero-animate hero-delay-2">
           "{STUDIO_INFO.tagline}"
         </p>
 
@@ -261,7 +261,7 @@ export const Hero: React.FC<HeroProps> = ({ onEnquireClick, onCategorySelect }) 
         </div>
 
         {/* Dual Call-to-Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-16 hero-animate hero-delay-4">
+        <div className="hero-actions flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-16 hero-animate hero-delay-4">
           <a
             href="#contact"
             onClick={onEnquireClick}
@@ -280,7 +280,7 @@ export const Hero: React.FC<HeroProps> = ({ onEnquireClick, onCategorySelect }) 
         </div>
 
         {/* Quick Highlights Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 w-full max-w-4xl pt-8 border-t border-[#C9A96E]/15 hero-animate hero-delay-5">
+        <div className="hero-highlights grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 w-full max-w-4xl pt-8 border-t border-[#C9A96E]/15 hero-animate hero-delay-5">
           <div className="flex flex-col items-center">
             <span className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F0E8]">500+</span>
             <span className="text-xs text-[#9C9180] font-sans tracking-wide mt-0.5">Events Captured</span>
