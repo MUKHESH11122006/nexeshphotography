@@ -448,7 +448,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Tamil Muhurtham Warmth",
     category: "weddings",
     categoryLabel: "Wedding",
-    imageUrl: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/assets/portfolio/weddings/tamil-muhurtham-warmth.jpg",
     location: "Coimbatore Convention Center",
     caption: "Joyous laughter during traditional flower rituals."
   },
@@ -457,7 +457,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Intimate Bride Candid",
     category: "weddings",
     categoryLabel: "Wedding",
-    imageUrl: "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/assets/portfolio/weddings/intimate-bride-candid.jpg",
     location: "RS Puram, Coimbatore",
     caption: "Graceful saree portrait before the reception."
   },
@@ -466,7 +466,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Couples Sunlit Portrait",
     category: "portraits",
     categoryLabel: "Portrait",
-    imageUrl: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/assets/portfolio/portraits/couples-sunlit-portrait.jpg",
     location: "Isha Foundation / Foothills",
     caption: "Golden hour romance captured with natural light."
   },
@@ -475,7 +475,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Seemantham Blessings",
     category: "baby-shower",
     categoryLabel: "Baby Shower",
-    imageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/assets/portfolio/baby-shower/seemantham-blessings.jpg",
     location: "Peelamedu, Coimbatore",
     caption: "Bangle ceremony smiles surrounded by maternal warmth."
   },
@@ -484,7 +484,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "1st Birthday Joy",
     category: "birthdays",
     categoryLabel: "Birthday",
-    imageUrl: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/assets/portfolio/birthdays/1st-birthday-joy.jpg",
     location: "Race Course, Coimbatore",
     caption: "Whimsical balloon decor & pure childhood excitement."
   },
@@ -493,7 +493,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Tech Summit Keynote",
     category: "corporate",
     categoryLabel: "Corporate",
-    imageUrl: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/assets/portfolio/corporate/tech-summit-keynote.jpg",
     location: "TIDEL Park, Coimbatore",
     caption: "Sharp keynote presentation & audience engagement."
   },
@@ -502,7 +502,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Nischayathartham Ring Exchange",
     category: "weddings",
     categoryLabel: "Wedding",
-    imageUrl: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/assets/portfolio/weddings/nischayathartham-ring-exchange.jpg",
     location: "Avinashi Road Hall",
     caption: "Pre-wedding engagement ceremony highlights."
   },
@@ -511,7 +511,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Solo Outdoor Portrait",
     category: "portraits",
     categoryLabel: "Portrait",
-    imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/assets/portfolio/portraits/solo-outdoor-portrait.jpg",
     location: "Valparai Hills",
     caption: "Expressive portrait highlighting subtle mood and personality."
   },
@@ -520,7 +520,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Executive Networking Summit",
     category: "corporate",
     categoryLabel: "Corporate",
-    imageUrl: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/assets/portfolio/corporate/executive-networking-summit.jpg",
     location: "Radisson Blu, Coimbatore",
     caption: "Leadership group interactions and dynamic discussions."
   }

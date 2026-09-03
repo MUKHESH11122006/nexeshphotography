@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SERVICE_CATEGORIES } from '../data/photographyData';
 import type { PricingPackage } from '../data/photographyData';
 import { Check, Star, Clock, Sparkles, ArrowRight, ShieldCheck, Info } from 'lucide-react';
@@ -6,10 +6,17 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface ServicesPricingProps {
   onSelectPackage?: (pkg: PricingPackage, catName: string) => void;
+  selectedCategoryTab?: string;
 }
 
-export const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage }) => {
-  const [activeTab, setActiveTab] = useState<string>('wedding');
+export const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, selectedCategoryTab }) => {
+  const [activeTab, setActiveTab] = React.useState<string>(selectedCategoryTab || 'wedding');
+
+  React.useEffect(() => {
+    if (selectedCategoryTab) {
+      setActiveTab(selectedCategoryTab);
+    }
+  }, [selectedCategoryTab]);
 
   const [headerRef, isHeaderVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
   const [tabsRef, areTabsVisible]   = useScrollReveal<HTMLDivElement>({ threshold: 0.1, delay: 60 });

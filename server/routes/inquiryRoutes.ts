@@ -1,8 +1,21 @@
 import { Router, Request, Response } from 'express';
+import mongoose from 'mongoose';
+import fs from 'fs';
 import { Inquiry } from '../models/Inquiry';
 import { sendInquiryEmail, sendClientConfirmationEmail } from '../utils/emailService';
+import { appendInquiryToExcel, getExcelFilePath } from '../utils/excelService';
 
 const router = Router();
+
+// GET /api/inquiries/export-excel — Download the nexeshcustomer.xlsx file
+router.get('/export-excel', (_req: Request, res: Response) => {
+  const filePath = getExcelFilePath();
+  if (fs.existsSync(filePath)) {
+    res.download(filePath, 'nexeshcustomer.xlsx');
+  } else {
+    res.status(404).json({ success: false, message: 'Excel customer database file not found yet.' });
+  }
+});
 
 // POST /api/inquiries — Create new inquiry
 router.post('/', async (req: Request, res: Response) => {
@@ -18,18 +31,26 @@ router.post('/', async (req: Request, res: Response) => {
       return;
     }
 
-    const inquiry = await Inquiry.create({
-      name,
-      phone,
-      email,
-      eventType,
-      eventDate,
-      location,
-      packagePreference,
-      message,
-    });
+    let inquiry = null;
+    if (mongoose.connection.readyState === 1) {
+      try {
+        inquiry = await Inquiry.create({
+          name,
+          phone,
+          email,
+          eventType,
+          eventDate,
+          location,
+          packagePreference,
+          message,
+        });
+      } catch (dbErr) {
+        console.error('Database write warning (proceeding with email and excel saving):', dbErr);
+      }
+    } else {
+      console.warn('⚠️ MongoDB is not connected. Processing inquiry via Excel and email fallback.');
+    }
 
-    // Send email to studio with inquiry details
     const inquiryData = {
       name,
       phone,
@@ -41,16 +62,24 @@ router.post('/', async (req: Request, res: Response) => {
       message,
     };
 
-    await sendInquiryEmail(inquiryData);
+    // Save directly to Excel sheet (nexeshcustomer.xlsx)
+    try {
+      await appendInquiryToExcel(inquiryData);
+    } catch (excelErr) {
+      console.error('Error saving inquiry to Excel sheet:', excelErr);
+    }
+
+    // Send email to studio with inquiry details
+    await sendInquiryEmail(inquiryData).catch(err => console.error('Error sending studio email:', err));
 
     // Send confirmation email to client if email is provided
     if (email) {
-      await sendClientConfirmationEmail(email, name);
+      await sendClientConfirmationEmail(email, name).catch(err => console.error('Error sending client email:', err));
     }
 
     res.status(201).json({
       success: true,
-      message: 'Inquiry submitted successfully! Check your email for confirmation. We will contact you within 2 hours.',
+      message: 'Inquiry submitted successfully! We will contact you within 2 hours.',
       data: inquiry,
     });
   } catch (err) {

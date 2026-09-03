@@ -41,8 +41,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledPackage
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || 'Submission failed.');
+
+      const contentType = res.headers.get('content-type');
+      let data: any = null;
+
+      if (contentType && contentType.includes('application/json')) {
+        data = await res.json();
+      } else {
+        throw new Error(
+          'Unable to reach the booking server right now. Please call or WhatsApp us directly at +91 99948 78151.'
+        );
+      }
+
+      if (!res.ok) {
+        throw new Error(data?.message || 'Submission failed. Please try again.');
+      }
+
       setSubmitted(true);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
