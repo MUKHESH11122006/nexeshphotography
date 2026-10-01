@@ -21,11 +21,11 @@ export const AboutUs: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-24 bg-[#0C0B0A] relative overflow-hidden">
+    <section id="about" className="py-24 bg-[#0C0B0A] relative overflow-hidden w-full max-w-full">
       
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#C9A96E]/4 rounded-full blur-[140px] pointer-events-none"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#C9A96E]/3 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 w-96 max-w-full h-96 bg-[#C9A96E]/4 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-96 max-w-full h-96 bg-[#C9A96E]/3 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

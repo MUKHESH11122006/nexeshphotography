@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Camera, Phone, Menu, X, ChevronRight, Sparkles } from 'lucide-react';
+import { Camera, Phone, Menu, X, ChevronRight, Sparkles, Home, IndianRupee, CalendarCheck } from 'lucide-react';
 import { STUDIO_INFO } from '../data/photographyData';
 
 interface NavbarProps {
@@ -99,6 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateContact }) => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 text-[#9C9180] hover:text-[#F5F0E8] focus:outline-none transition-colors"
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -143,6 +144,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateContact }) => {
           </div>
         </div>
       </div>
+
+      <nav className="mobile-dashboard-nav lg:hidden" aria-label="Quick navigation">
+        <a href="#hero" className="mobile-dashboard-link">
+          <Home className="w-4 h-4" />
+          <span>Home</span>
+        </a>
+        <a href="#pricing" className="mobile-dashboard-link">
+          <IndianRupee className="w-4 h-4" />
+          <span>Rates</span>
+        </a>
+        <a href="#contact" className="mobile-dashboard-link mobile-dashboard-primary" onClick={() => onNavigateContact?.()}>
+          <CalendarCheck className="w-4 h-4" />
+          <span>Book</span>
+        </a>
+        <button type="button" className="mobile-dashboard-link" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Open navigation menu" aria-expanded={isMobileMenuOpen}>
+          {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+          <span>Menu</span>
+        </button>
+      </nav>
     </header>
   );
 };

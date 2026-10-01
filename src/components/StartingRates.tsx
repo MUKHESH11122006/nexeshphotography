@@ -23,7 +23,7 @@ export const StartingRates: React.FC = () => {
     <section
       ref={sectionRef}
       id="starting-rates"
-      className="bg-[#161412] py-8 border-y border-[#C9A96E]/10 relative z-20"
+      className="bg-[#161412] py-8 border-y border-[#C9A96E]/10 relative z-20 overflow-hidden w-full max-w-full"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rates-layout flex flex-col md:flex-row items-center justify-between gap-6">

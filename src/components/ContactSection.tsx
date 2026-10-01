@@ -68,10 +68,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledPackage
   const inputCls = "w-full px-4 py-3.5 rounded-xl bg-[#0C0B0A] border border-[#C9A96E]/15 focus:border-[#C9A96E]/60 text-sm text-[#F5F0E8] placeholder-[#4A4540] focus:outline-none transition-colors";
 
   return (
-    <section id="contact" className="py-24 bg-[#0C0B0A] relative">
+    <section id="contact" className="py-24 bg-[#0C0B0A] relative overflow-hidden w-full max-w-full">
       
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#C9A96E]/5 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 w-96 max-w-full h-96 bg-[#C9A96E]/5 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

@@ -196,7 +196,7 @@ export const Hero: React.FC<HeroProps> = ({ onEnquireClick, onCategorySelect }) 
       onMouseLeave={() => {
         mousePos.current.active = false;
       }}
-      className="hero-section relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden cursor-default"
+      className="hero-section relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden cursor-default w-full max-w-full"
     >
       {/* Background Image Layer */}
       <div ref={bgRef} className="absolute inset-0 z-0" style={{ willChange: 'transform' }}>
@@ -214,11 +214,11 @@ export const Hero: React.FC<HeroProps> = ({ onEnquireClick, onCategorySelect }) 
       {/* Interactive Floating Particles Canvas Layer */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 z-10 pointer-events-none w-full h-full"
+        className="absolute inset-0 z-10 pointer-events-none w-full h-full max-w-full"
       />
 
       {/* Ambient champagne glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C9A96E]/5 rounded-full blur-[160px] pointer-events-none z-0"></div>
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] max-w-full h-[600px] bg-[#C9A96E]/5 rounded-full blur-[160px] pointer-events-none z-0"></div>
 
       <div className="hero-content relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         

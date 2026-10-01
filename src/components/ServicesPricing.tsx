@@ -35,10 +35,10 @@ export const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackag
   };
 
   return (
-    <section id="pricing" className="py-24 bg-[#0C0B0A] relative">
+    <section id="pricing" className="py-24 bg-[#0C0B0A] relative overflow-hidden w-full max-w-full">
       
       {/* Background radial glow */}
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#C9A96E]/4 rounded-full blur-[160px] pointer-events-none"></div>
+      <div className="absolute top-1/3 right-0 w-[500px] max-w-full h-[500px] bg-[#C9A96E]/4 rounded-full blur-[160px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -106,7 +106,7 @@ export const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackag
         <div
           key={activeTab}
           ref={cardsRef}
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${Math.min(currentCategory.packages.length, 4)} gap-8 items-stretch`}
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 items-stretch w-full max-w-full`}
         >
           {currentCategory.packages.map((pkg, idx) => {
             const isPopular = pkg.popular;

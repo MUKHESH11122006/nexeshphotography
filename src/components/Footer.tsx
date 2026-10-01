@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
   const [footerRef, isFooterVisible] = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   return (
-    <footer className="bg-[#0C0B0A] text-[#9C9180] border-t border-[#C9A96E]/10 pt-16 pb-12 font-sans relative">
+    <footer className="bg-[#0C0B0A] text-[#9C9180] border-t border-[#C9A96E]/10 pt-16 pb-12 font-sans relative overflow-hidden w-full max-w-full">
       <div
         ref={footerRef}
         className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-hidden ${isFooterVisible ? 'reveal-visible' : ''}`}

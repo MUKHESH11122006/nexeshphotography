@@ -10,10 +10,10 @@ export const AddOnsAlbums: React.FC = () => {
   const [addOnCardsRef, areAddOnCardsVisible]   = useScrollReveal<HTMLDivElement>({ threshold: 0.1, delay: 80 });
 
   return (
-    <section id="albums" className="py-24 bg-[#0C0B0A] relative border-t border-[#C9A96E]/10">
+    <section id="albums" className="py-24 bg-[#0C0B0A] relative border-t border-[#C9A96E]/10 overflow-hidden w-full max-w-full">
       
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#C9A96E]/3 rounded-full blur-[180px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] max-w-full h-[700px] bg-[#C9A96E]/3 rounded-full blur-[180px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

@@ -38,7 +38,7 @@ export const PortfolioGallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="py-24 bg-[#0C0B0A] relative">
+    <section id="gallery" className="py-24 bg-[#0C0B0A] relative overflow-hidden w-full max-w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
